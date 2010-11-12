@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  <bean id="wikiDocService" class="com.enonic.cms.plugin.confluence.service.RpcWikiDocService">
+    <property name="url" value="${plugin.config.url}"/>
+    <property name="user" value="${plugin.config.user}"/>
+    <property name="password" value="${plugin.config.password}"/>
+  </bean>
+
+  <bean id="cachedWikiDocService" class="com.enonic.cms.plugin.confluence.service.CachedWikiDocService">
+    <property name="service" ref="wikiDocService"/>
+    <property name="maxSize" value="${plugin.config.cacheMaxSize}"/>
+    <property name="timeout" value="${plugin.config.cacheTimeout}"/>
+    <property name="enabled" value="${plugin.config.cacheEnabled}"/>
+  </bean>
+
+  <bean id="wikiFunctionLibrary" class="com.enonic.cms.plugin.confluence.ConfluenceFunctionLibrary">
+    <property name="service" ref="cachedWikiDocService"/>
+  </bean>
+
+  <bean class="com.enonic.cms.api.plugin.ext.FunctionLibrary">
+    <property name="name" value="confluence"/>
+    <property name="target" ref="wikiFunctionLibrary"/>
+    <property name="displayName" value="Confluence Wiki Function Library Plugin"/>
+  </bean>
+
+  <bean class="com.enonic.cms.plugin.confluence.ConfluenceFileController">
+    <property name="service" ref="cachedWikiDocService"/>
+    <property name="urlPattern" value="${plugin.config.binPath}"/>
+  </bean>
+
+</beans>
