@@ -42,9 +42,9 @@
               com.enonic.cms.plugin.confluence.*,
               redstone.xmlrpc.*
             </Private-Package>
-            <Plugin-Activator>
+            <Bundle-Activator>
               com.enonic.cms.plugin.confluence.ConfluenceActivator
-            </Plugin-Activator>
+            </Bundle-Activator>
           </instructions>
         </configuration>
       </plugin>
