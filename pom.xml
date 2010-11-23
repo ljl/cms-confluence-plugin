@@ -42,9 +42,6 @@
               com.enonic.cms.plugin.confluence.*,
               redstone.xmlrpc.*
             </Private-Package>
-            <Bundle-Activator>
-              com.enonic.cms.plugin.confluence.ConfluenceActivator
-            </Bundle-Activator>
           </instructions>
         </configuration>
       </plugin>
@@ -56,11 +53,6 @@
       <groupId>com.enonic.cms</groupId>
       <artifactId>cms-api</artifactId>
       <version>${cms.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.enonic.cms.plugin</groupId>
-      <artifactId>cms-spring-plugin</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>redstone</groupId>
