@@ -38,6 +38,7 @@
             <Bundle-SymbolicName>
               ${project.groupId}.confluence
             </Bundle-SymbolicName>
+			<Export-Package/>
             <Private-Package>
               com.enonic.cms.plugin.confluence.*,
               redstone.xmlrpc.*
