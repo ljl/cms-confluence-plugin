@@ -65,7 +65,7 @@
   <repositories>
     <repository>
       <id>enonic</id>
-      <url>http://maven.enonic.com/open</url>
+      <url>http://repo.enonic.com/maven</url>
     </repository>
   </repositories>
 
