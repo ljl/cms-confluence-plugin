@@ -13,11 +13,11 @@
   <groupId>com.enonic.cms.plugin</groupId>
   <artifactId>cms-confluence-plugin</artifactId>
   <name>Enonic CMS - Confluence Plugin</name>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>bundle</packaging>
 
   <properties>
-    <cms.version>4.5.0-SNAPSHOT</cms.version>
+    <cms.version>4.5.0</cms.version>
   </properties>
 
   <licenses>
