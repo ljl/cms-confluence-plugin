@@ -17,7 +17,7 @@
   <packaging>bundle</packaging>
 
   <properties>
-    <cms.version>4.5.0-SNAPSHOT</cms.version>
+    <cms.version>4.5.2</cms.version>
   </properties>
 
   <licenses>

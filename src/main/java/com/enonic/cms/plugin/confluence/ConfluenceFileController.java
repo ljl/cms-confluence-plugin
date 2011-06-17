@@ -20,8 +20,14 @@ public final class ConfluenceFileController
     public void handleRequest( HttpServletRequest req, HttpServletResponse res )
         throws Exception
     {
+        try {
         String page = req.getParameter( "page" );
         String file = req.getParameter( "file" );
+
+        if ((file != null) && file.contains("?")) {
+            file = file.substring( 0, file.indexOf( '?' ) );
+        }
+
 
         if ( ( page == null ) || ( file == null ) )
         {
@@ -39,6 +45,10 @@ public final class ConfluenceFileController
         res.setContentType( model.getContentType() );
         res.setHeader( "Content-Disposition", getDispositionHeader( req, file ) );
         res.getOutputStream().write( model.getData() );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     private void sendNotFound( HttpServletResponse res )
