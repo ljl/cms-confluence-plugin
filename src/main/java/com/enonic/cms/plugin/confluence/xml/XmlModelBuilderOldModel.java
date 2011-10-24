@@ -58,7 +58,7 @@ public class XmlModelBuilderOldModel
         if ( content != null )
         {
             Element tmp = new Element( "html" );
-            tmp.addContent( new CDATA( LinkRewriter.rewriteLinks( content ) ) );
+            tmp.addContent( LinkRewriter.rewriteLinks( content ) );
             root.addContent( tmp );
         }
 

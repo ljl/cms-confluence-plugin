@@ -23,7 +23,20 @@ public final class ConfluenceService
     private Object invoke( String method, Object... params )
         throws XmlRpcFault
     {
+        Object token = null;
+        try {
+            token = this.client.invoke( "confluence2." + method, params );
+        }catch (Exception e){
+            token = attemptGracefulDegradationForConfluenceAPIVersion1(method, params);
+        }
+        return token;
+    }
+
+    private Object attemptGracefulDegradationForConfluenceAPIVersion1( String method, Object... params )
+        throws XmlRpcFault
+    {
         return this.client.invoke( "confluence1." + method, params );
+
     }
 
     /**

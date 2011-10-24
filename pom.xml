@@ -14,7 +14,7 @@
   <artifactId>cms-confluence-plugin</artifactId>
   <name>Enonic CMS - Confluence Plugin</name>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>bundle</packaging>
+  <packaging>cms-plugin</packaging>
 
   <properties>
     <cms.version>4.5.2</cms.version>
@@ -30,21 +30,14 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <configuration>
-          <instructions>
-            <Bundle-SymbolicName>
-              ${project.groupId}.confluence
-            </Bundle-SymbolicName>
-			<Export-Package/>
-            <Private-Package>
-              com.enonic.cms.plugin.confluence.*,
-              redstone.xmlrpc.*
-            </Private-Package>
-          </instructions>
-        </configuration>
+        <plugin>
+          <groupId>com.enonic.cms.tools</groupId>
+          <artifactId>maven-cms-plugin</artifactId>
+          <version>1.0.0</version>
+          <extensions>true</extensions>
+          <configuration>
+              <pluginId>cms-plugin-confluence</pluginId>
+          </configuration>
       </plugin>
     </plugins>
   </build>
@@ -54,6 +47,7 @@
       <groupId>com.enonic.cms</groupId>
       <artifactId>cms-api</artifactId>
       <version>${cms.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>redstone</groupId>
