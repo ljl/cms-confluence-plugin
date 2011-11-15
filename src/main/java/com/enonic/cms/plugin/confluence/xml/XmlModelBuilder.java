@@ -5,6 +5,9 @@ import com.enonic.cms.plugin.confluence.model.SpaceModel;
 import org.jdom.CDATA;
 import org.jdom.Document;
 import org.jdom.Element;
+import org.jdom.output.XMLOutputter;
+
+import java.util.logging.Logger;
 
 public final class XmlModelBuilder
 {
@@ -136,6 +139,7 @@ public final class XmlModelBuilder
         Element root = buildContentElement( model );
         if ( content != null )
         {
+
             Element tmp = new Element( "html" );
             tmp.addContent( LinkRewriter.rewriteLinks( content ) );
             root.addContent( tmp );
